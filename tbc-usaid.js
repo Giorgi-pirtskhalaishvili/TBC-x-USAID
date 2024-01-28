@@ -32,8 +32,15 @@ const downArrow = document.querySelectorAll("#downArrow");
 
 questions.forEach((question, index) => {
   question.addEventListener("click", () => {
-    answers[index].classList.toggle("visible");
-    downArrow[index].classList.toggle("rotate");
+    questions.forEach((_, i) => {
+      if (i === index) {
+        answers[i].classList.toggle("visible");
+        downArrow[i].classList.toggle("rotate");
+      } else {
+        answers[i].classList.remove("visible");
+        downArrow[i].classList.remove("rotate");
+      }
+    });
   });
 });
 //  Mobile sidebar
